@@ -2,13 +2,12 @@
 /* génération du background */
 /*************************/
 .background {
-  position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   background: #000000;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .background span {
@@ -528,6 +527,12 @@ h1 {
   box-shadow: 0 2px 0 0 aliceblue;
   animation: apparition 1s forwards;
 }
+/*
+.scroll_nav {
+  z-index: 9999;
+    position: sticky;
+  top: 0;
+} */
 @keyframes apparition {
   0% {
     opacity: 0;
@@ -563,23 +568,8 @@ h1 {
   opacity: 0.8;
 }
 .contain_nav_svg {
-  flex: 1 0; /*
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  background-color: rgb(7, 37, 204);
-  box-shadow: 0 0 0 0 rgb(7, 37, 204);
-  animation: pulse 1.5s infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;*/
+  flex: 1 0;
 }
-/*
-@keyframes pulse {
-  to {
-    box-shadow: 0 0 0 24px rgba(48, 205, 233, 0.01);
-  }
-} */
 .algo_svg {
   max-width: 64px;
   max-height: 64px;
@@ -620,4 +610,7 @@ h1 {
     background-color: aliceblue;
     color: black;
   }
+}
+.contain_article {
+  max-width: 1600px;
 }

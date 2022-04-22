@@ -15,7 +15,7 @@ include_once "./../view/template/_navbar.php";
                     <th class="view">Content</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="contain_article">
                 <?php if (isset($options["articles"])) {
                     foreach ($options["articles"] as $key => $article) { ?>
                         <tr>
