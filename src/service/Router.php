@@ -5,6 +5,7 @@ require_once "../src/controller/ErrorController.php";
 require_once "../src/controller/ArticleController.php";
 require_once "../src/controller/ConnexionController.php";
 require_once "../src/controller/ArticleViewController.php";
+require_once "../src/controller/MemoryController.php";
 
 $page = NULL;
 
@@ -45,6 +46,9 @@ switch ($page) {
     case 'selectedArticle':
         $selectArticle = new ArticleController();
         $selectArticle->selectedArticle();
+    case 'memory':
+        $memory = new MemoryController();
+        $memory->renderView();
     default:
         $error = new ErrorController();
         $error->renderView();

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/reseter.css"/>
     <link rel="stylesheet" href="/style/backstyle.css"/>
+    <link rel="stylesheet" href="/style/memory.css">
     <link rel="stylesheet" href="/style/style.css"/>
     <title>Algorand France</title>
 </head>
@@ -60,6 +61,7 @@
         <span></span>
         <span></span>
         <span></span>
+        <script src="./script/memory.js"></script>
 </body>
 </html>
 
