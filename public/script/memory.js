@@ -9,7 +9,7 @@ let play = [
   [0, 0, 0, 0],
 ];
 
-const main = () => {
+const principal = () => {
   seeTab();
 };
 
