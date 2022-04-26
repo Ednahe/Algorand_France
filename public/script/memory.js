@@ -1,132 +1,127 @@
-let lastSelect = [];
-let nbView = 0;
-let ready = true;
-let play = [
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
+const section = document.getElementById("section_memory");
+const compteurVie = document.getElementById("span_memory");
+let vie = 6;
+
+// générer les vies
+compteurVie.textContent = vie;
+
+// placer aléatoirement les images dans le tableau
+const getData = () => [
+  {imgSrc: '../image_memory/image/akita.png', name:'akita'},
+  {imgSrc: '../image_memory/image/algo.jpg', name:'algo'},
+  {imgSrc: '../image_memory/image/arcc.png', name:'arcc'},
+  {imgSrc: '../image_memory/image/gems.png', name:'gems'},
+  {imgSrc: '../image_memory/image/headline.png', name:'headline'},
+  {imgSrc: '../image_memory/image/opul.png', name:'opul'},
+  {imgSrc: '../image_memory/image/smile.png', name:'smile'},
+  {imgSrc: '../image_memory/image/xet.png', name:'xet'},
+  {imgSrc: '../image_memory/image/yieldly.jpg', name:'yldy'},
+  {imgSrc: '../image_memory/image/Zone_logo.jpeg', name:'zone'},
+  {imgSrc: '../image_memory/image/akita.png', name:'akita'},
+  {imgSrc: '../image_memory/image/algo.jpg', name:'algo'},
+  {imgSrc: '../image_memory/image/arcc.png', name:'arcc'},
+  {imgSrc: '../image_memory/image/gems.png', name:'gems'},
+  {imgSrc: '../image_memory/image/headline.png', name:'headline'},
+  {imgSrc: '../image_memory/image/opul.png', name:'opul'},
+  {imgSrc: '../image_memory/image/smile.png', name:'smile'},
+  {imgSrc: '../image_memory/image/xet.png', name:'xet'},
+  {imgSrc: '../image_memory/image/yieldly.jpg', name:'yldy'},
+  {imgSrc: '../image_memory/image/Zone_logo.jpeg', name:'zone'}
 ];
+const tab = getData();
 
-const principal = () => {
-  seeTab();
+// placement aléatoire dans le tableau
+
+const random = () => {
+  const cardsData = getData();
+  cardsData.sort(() => Math.random() - 0.5);
+  return cardsData;
 };
 
-// fonction faisant apparaitre le tableau dans le dom
-const seeTab = () => {
-  let create = "";
-  for (let i = 0; i < play.length; i++) {
-    create += "<div>";
-    for (let j = 0; j < play[i].length; j++) {
-      if (play[i][j] === 0) {
-        create +=
-          "<button class='btn' onClick='verif(\"" +
-          i +
-          "-" +
-          j +
-          "\")'>?</button>";
-      } else {
-        create += "<img src='" + getImage(play[i][j]) + "' class='img'>";
-      }
-    }
-    create += "</div>";
-  }
-  memory.innerHTML = create;
+// Générer le tableau en html
+const cardGenerator = () => {
+  const cardsData = random();
+  const cards = document.querySelectorAll(".card");
+  cardsData.forEach((item) => {
+
+    const card = document.createElement("div");
+    const face = document.createElement("img");
+    const back = document.createElement("div");
+    card.classList = 'card';
+    face.classList = 'face';
+    back.classList = 'back';
+    // lié les images aux cartes
+    face.src = item.imgSrc;
+    card.setAttribute('name', item.name);
+    // afficher les cartes dans la section
+    section.appendChild(card);
+    card.appendChild(face);
+    card.appendChild(back);
+
+    card.addEventListener('click', (e) => {
+      card.classList.toggle("toggleCard");
+      checkCards(e);
+    })
+  });
 };
 
-// fonction d'assignation d'image à un emplacement (numéro) du tableau
-const getImage = (valeur) => {
-  let generateImg = "";
-  switch (valeur) {
-    case 1:
-      generateImg += "../image_memory/image/akita.png";
-      break;
-    case 2:
-      generateImg += "./../image_memory/image/algo.jpg";
-      break;
-    case 3:
-      generateImg += "./../image_memory/image/arcc.png";
-      break;
-    case 4:
-      generateImg += "./../image_memory/image/gems.png";
-      break;
-    case 5:
-      generateImg += "./../image_memory/image/headline.png";
-      break;
-    case 6:
-      generateImg += "./../image_memory/image/opul.png";
-      break;
-    case 7:
-      generateImg += "./../image_memory/image/smile.png";
-      break;
-    case 8:
-      generateImg += "./../image_memory/image/xet.png";
-      break;
-    case 9:
-      generateImg += "./../image_memory/image/yieldly.jpg";
-      break;
-    case 10:
-      generateImg += "./../image_memory/image/Zone_logo.jpeg";
-      break;
-    default:
-      console.log("bug");
-  }
-  return generateImg;
-};
+//vérification du click
+const checkCards = (e) => {
+  console.log(e);
+  const clicked = e.target;
+  clicked.classList.add("flip");
+  const flipCard = document.querySelectorAll(".flip");
+  const plateau = document.querySelectorAll('toggleCard');
 
-// fonction qui déclanche un évènement au 2nd clic
-const verif = (bouton) => {
-  if (ready) {
-    nbView++;
-    let line = bouton.substr(0, 1);
-    let column = bouton.substr(2, 1);
-    play[line][column] = playResult[line][column];
-    seeTab();
-
-    if (nbView > 1) {
-      ready = false;
-      setTimeout(() => {
-        if (play[line][column] !== playResult[lastSelect[0]][lastSelect[1]]) {
-          play[line][column] = 0;
-          play[lastSelect[0]][lastSelect[1]] = 0;
-        }
-        seeTab();
-        ready = true;
-        nbView = 0;
-      }, 500);
+  if(flipCard.length === 2) {
+    if(flipCard[0].getAttribute('name') === flipCard[1].getAttribute('name')) {
+      console.log("gagné");
+      flipCard.forEach(card => {
+        card.classList.remove('flip');
+        card.style.pointerEvents = 'none';
+      })
     } else {
-      lastSelect = [line, column];
-    }
+      console.log("perdu");
+      flipCard.forEach(card => {
+        card.classList.remove('flip');
+        setTimeout(() => {
+          card.classList.remove('toggleCard');
+        }, 1000);
+      });
+      vie--;
+      compteurVie.textContent = vie;
+      if(vie === 0) {
+        restart("Perdu :'(");        
+      };
+    };
+  };
+  // partie gagnée
+  if(plateau.length === 20) {
+    restart("bien joué :)");
   }
 };
 
-// fonction pour placer aléatoirement les images dans le tableau
-const generateRandomTab = () => {
-  let tab = [];
-  let nbImagePosition = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-  for (let i = 0; i < 5; i++) {
-    let ligne = [];
-    for (let j = 0; j < 4; j++) {
-      let end = false;
-      while (!end) {
-        let randomImage = Math.floor(Math.random() * 10);
-        if (nbImagePosition[randomImage] < 2) {
-          ligne.push(randomImage + 1);
-          nbImagePosition[randomImage]++;
-          end = true;
-        }
-      }
-    }
-    tab.push(ligne);
-  }
-  return tab;
+// réinitialisation
+const restart = (text) => {
+  let cardData = random();
+  let faces = document.querySelectorAll(".face");
+  let cards = document.querySelectorAll(".card");
+  section.style.pointerEvents = "none";
+  cardData.forEach((item, index) => {
+    cards[index].classList.remove("toggleCard");
+    //randomize
+    setTimeout(() => {
+      cards[index].style.pointerEvents = "all";
+      faces[index].src = item.imgSrc;
+      cards[index].setAttribute("name", item.name);
+      section.style.pointerEvents = "all";
+    }, 1000);  
+  })
+  vie = 6;
+  compteurVie.textContent = vie;
+  setTimeout(() => {
+    window.alert(text)
+  }, 100);
 };
 
-let playResult = generateRandomTab();
-
-addEventListener("load", () => {
-  const memory = document.getElementById("memory");
-  seeTab();  
-});
+addEventListener('load', cardGenerator);

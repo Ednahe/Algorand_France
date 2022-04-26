@@ -11,7 +11,7 @@ class UserRepository extends Repository {
 
     public function findOneByUsername(string $username): ?User {
 
-        $ser = NULL;
+        $user = NULL;
         $query = "SELECT * FROM $this->table WHERE username = :username LIMIT 1 ;";
         $params = [
             ":username" => $username
