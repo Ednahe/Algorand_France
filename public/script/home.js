@@ -2,29 +2,6 @@ const arrowDown = document.getElementById("arrow_down");
 const containPara = document.getElementById("contain_para");
 const body = document.querySelector("body");
 
-// déclaration des éléments du dom nécessaire à l'apparition des popup
-const info = [...document.querySelectorAll('.info')];
-const popup = [...document.querySelectorAll('.popup')];
-const infoTiny = document.getElementById("info_tiny");
-const popupTiny = document.getElementById("popup_tiny");
-
-const infoDex = document.getElementById("info_algodex");
-
-const infoAlgofi = document.getElementById("info_algofi");
-
-const infoRand = document.getElementById("info_rand");
-
-const infoGems = document.getElementById("info_gems");
-
-const infoYldy = document.getElementById("info_yldy");
-
-const infoStake = document.getElementById("info_stake");
-
-const infoZone = document.getElementById("info_zone");
-
-const infoSmile = document.getElementById("info_smile");
-// fin de la (longue) déclaration
-
 // fonction principale
 const mainHome = () => {
   arrowDown.addEventListener("click", clickArrow);
@@ -50,11 +27,15 @@ const seeLi = () => {
   }
 }
 
+// appel de la partie liste
+
 const getAnim = () => {
   seeLi();
   addEventListener('scroll', animParaLeft);
   addEventListener('scroll', animParaRight);  
 } 
+
+// génération de l'effet
 
   const animParaLeft = () => {
     for(i = 0; i < tabPair.length; i++) {
@@ -77,10 +58,6 @@ const getAnim = () => {
       }
     }
   }  
-    /*   tabPair[0].style.animationDelay = '0.3s';
-  tabPair[1].style.animationDelay = '0.6s';
-  tabPair[2].style.animationDelay = '0.9s';
-  console.log(tabPair[0]); */
 
 //fin partie liste
 
@@ -92,95 +69,83 @@ const clickArrow = () => {
 // fin partie clic
 
 // partie popup
-// déclaration du body
-const bodyBackground = () => {
-  body.style.background = "rgba(1, 1, 1, 0.5)";
-};
+// déclaration des éléments du dom nécessaire à l'apparition des popup
+const info = [...document.querySelectorAll('.info')];
+const popup = [...document.querySelectorAll('.popup')];
+const infoTiny = document.getElementById("info_tiny");
 
-const bodyNone = () => {
-  body.style.background = "rgb(20, 22, 26)";
-};
-
-const test = () => {
-  for (let i = 0; i < info.length; i++) {
-    if(info[i].style.borderRadius !== "24px") {
-      info[i].style.borderRadius = "24px";
-    } else {
-      console.log('test');
-    }
-  }
-}
 
 const tinyRadius = () => {
-  infoTiny.style.borderRadius = "24px";
+  info[0].style.borderRadius = "24px";
 }
 
 const tinyEnd = () => {
-  infoTiny.style.borderRadius = "23px";
+  info[0].style.borderRadius = "23px";
 }
+
 
 // fonction de génération des différentes popup
 const generatePopupTiny = () => {
   
-  if (infoTiny.style.borderRadius === "24px") {
+  if (info[0].style.borderRadius === "24px") {
     popup[0].style.transform = "scale(1)";
-  } else if (infoTiny.style.borderRadius === "23px") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[0].style.transform = "scale(0)";
   }
 };
 const generatePopupDex = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[1].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[1].style.transform = "scale(0)";
   }
 };
 const generatePopupFi = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[2].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[2].style.transform = "scale(0)";
   }
 };
 const generatePopupRand = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[3].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[3].style.transform = "scale(0)";
   }
 };
 const generatePopupGems = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[4].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[4].style.transform = "scale(0)";
   }
 };
 const generatePopupYldy = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[5].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[5].style.transform = "scale(0)";
   }
 };
 const generatePopupStake = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[6].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[6].style.transform = "scale(0)";
   }
 };
 const generatePopupZone = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[7].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[7].style.transform = "scale(0)";
   }
 };
 const generatePopupSmile = () => {
-  if (body.style.background === "rgba(1, 1, 1, 0.5)") {
+  if (info[0].style.borderRadius === "24px") {
     popup[8].style.transform = "scale(1)";
-  } else if (body.style.background === "rgb(20, 22, 26)") {
+  } else if (info[0].style.borderRadius === "23px") {
     popup[8].style.transform = "scale(0)";
   }
 };
@@ -195,69 +160,69 @@ const closeTinyman = () => {
   generatePopupTiny();
 };
 const openDex = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupDex();
 };
 const closeAlgodex = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupDex();
 };
 const openFi = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupFi();
 };
 const closeFi = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupFi();
 };
 const openRand = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupRand();
 };
 const closeRandGal = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupRand();
 };
 const openGems = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupGems();
 };
 const closeAlgogems = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupGems();
 };
 const openYieldly = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupYldy();
 };
 const closeYieldly = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupYldy();
 };
 const openStake = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupStake();
 };
 const closeAlgostake = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupStake();
 };
 const openZone = () => {
-  bodyBackground();
+  tinyRadius();
   generatePopupZone();
 };
 const closeZoneGame = () => {
-  bodyNone();
+  tinyEnd();
   generatePopupZone();
 };
 const openSmile = () => {
-    bodyBackground();
-    generatePopupSmile();
-  };
+  tinyRadius();
+  generatePopupSmile();
+};
   const closeSmileGame = () => {
-    bodyNone();
-    generatePopupSmile();
-  };
+  tinyEnd();
+  generatePopupSmile();
+};
 // fin de l'appel des fonctions spécifique aux popup
 
 const clickOpen = () => {

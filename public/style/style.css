@@ -46,6 +46,7 @@ h2 {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 32px;
+  margin-bottom: 40px;
   border-radius: 16px;
   align-items: center;
   box-shadow: 0 0 3px 0 var(--color-is-white), 0 3px 4px -2px var(--neon-color);
@@ -354,7 +355,7 @@ h2 {
   border-radius: 50%;
 }
 
-.toggleCard {
+.cards {
   transform: rotateY(180deg);
 }
 
@@ -671,6 +672,36 @@ h1 {
     display: none;
   }
 }
+/* connexion */
+.section_connect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.section_connect .form_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.section_connect .form_section #username,
+.section_connect .form_section #password {
+  border-radius: 16px;
+}
+.section_connect .form_section .contain_btn_connect {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+#article_content {
+  width: 100%;
+  height: 400px;
+  margin-top: 8px;
+}
+
 footer {
   margin-top: 2rem;
   border-top: 1px solid var(--color-is-white);

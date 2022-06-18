@@ -7,31 +7,36 @@ include_once "../view/template/_navbar.php"
 <?php
 if (isset($options["responseType"])) {
     if ($options["responseType"] === "error") {
-        echo "<div>Identifiant ou mot de passe incorrect</div>";
+        echo "<p>Identifiant ou mot de passe incorrect</p>";
     }
     if ($options["responseType"] === "success") {
-        echo "<div>Connexion effectué avec succès</div>";
+        echo "<p>Connexion effectué avec succès</p>";
     }
 }
 ?>
 
-<div>
-    <form method="POST">
+<section class="section_connect">
+    <form method="POST" class="form_section">
         <div>
-            <label class="view" for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="username">
-            <div class="view">Entrer un nom d'utilisateur</div>
+            <p class="view">Entrez votre identifiant</p>
+            <label class="view" for="username">Nom d'utilisateur</label>            
+            <input type="text" id="username" name="username">           
         </div>
         <div>
             <label class="view" for="password">mot de passe</label>
             <input type="password" id="password" name="password">
         </div>
-        <button class="btn_connect" type="submit">Se connecter</button>
+        <div class="contain_btn_connect">
+            <button class="btn_connect" type="submit">Se connecter</button>
+            
+        </div>
     </form>
-</div>
 
-<?php  if (isset($_SESSION["user_is_connect"]) && $_SESSION["user_is_connect"]) { ?>
-    <div>
-        <a class="a_article" href="/?page=add_article">Ajouter un article</a> 
-    </div>
-<?php  } ?>
+    <?php  if (isset($_SESSION["user_is_connect"]) && $_SESSION["user_is_connect"]) { ?>
+            <div>
+                <a class="a_article" href="/?page=add_article">Ajouter un article</a> 
+            </div>
+            <?php  } ?>
+
+</section>
+<script src="/script/main.js"></script>

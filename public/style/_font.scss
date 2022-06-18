@@ -12,7 +12,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 div, p, span, a {
     font-family: 'Zen Maru Gothic', sans-serif;
-    color: rgb(255, 255, 255);
+    color: var(--color-is-white);
 }
 h1 {
     font-size: 48px;

@@ -19,3 +19,4 @@ include_once "./../view/template/_navbar.php";
 <?php
 include_once "./../view/template/footer.php";
 ?>
+<script src="/script/main.js"></script>

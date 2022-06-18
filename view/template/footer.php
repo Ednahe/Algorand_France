@@ -25,6 +25,6 @@
             </a>
             </div>
         </div>
-        <div class="return"></div>
+        <div id="return"></div>
     </div>
 </footer>

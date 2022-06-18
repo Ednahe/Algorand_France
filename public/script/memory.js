@@ -58,7 +58,7 @@ const cardGenerator = () => {
     card.appendChild(back);
 
     card.addEventListener("click", (e) => {
-      card.classList.toggle("toggleCard");
+      card.classList.toggle("cards");
       checkCards(e);
     });
   });
@@ -69,7 +69,7 @@ const checkCards = (e) => {
   const clicked = e.target;
   clicked.classList.add("flip");
   const flipCard = document.querySelectorAll(".flip");
-  const plateau = document.querySelectorAll("toggleCard");
+  const plateau = document.querySelectorAll(".cards");
 
   if (flipCard.length === 2) {
     if (flipCard[0].getAttribute("name") === flipCard[1].getAttribute("name")) {
@@ -81,7 +81,7 @@ const checkCards = (e) => {
       flipCard.forEach((card) => {
         card.classList.remove("flip");
         setTimeout(() => {
-          card.classList.remove("toggleCard");
+          card.classList.remove("cards");
         }, 1000);
       });
       tryIt--;
@@ -92,7 +92,7 @@ const checkCards = (e) => {
       }
     }
   }
-  // partie gagnée
+  // Si toutes les cartes ont été retourné = partie gagnée
   if (plateau.length === 20) {
     restart();
     notificationWin();
@@ -106,7 +106,7 @@ const restart = (text) => {
   let cards = document.querySelectorAll(".card");
   container.style.pointerEvents = "none";
   cardData.forEach((item, index) => {
-    cards[index].classList.remove("toggleCard");
+    cards[index].classList.remove("cards");
     //randomize
     setTimeout(() => {
       cards[index].style.pointerEvents = "all";

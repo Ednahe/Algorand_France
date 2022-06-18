@@ -2,16 +2,17 @@
 include_once "./../view/template/head.php";
 include_once "./../view/template/_navbar.php";
 ?>
+
+<!-- première partie -->
+
 <h1>Algorand la blockchain 3.0</h1>
 <section class="first_section">
-  <div class="contain_img_background">
-    <!-- <img
-      src="/image/1614950521-89e84c54-a6cf-4528-a9b8-5f2399fa7dbc.jpeg"
-      alt="Silvio Micali tout sourire avec le logo algorand à la place des yeux et une fusée qui décolle en arrière plan"
-      class="silvio"
-    />-->
-  </div>
+  <div class="contain_img_background"></div>
 </section>
+
+<!-- fin première partie -->
+<!-- seconde partie -->
+
 <section class="second_section">
   <h2 class="first_title">
     Algorand c'est quoi au juste ?
@@ -103,14 +104,18 @@ include_once "./../view/template/_navbar.php";
         <p class="para_li">
           Blockchain écologique : la blockchain algorand ne consomme presque
           rien, une transaction sur le réseau équivaut à 29 joules soit 37x
-          moins qu'une recheche google.
+          moins qu'une recherche google.
         </p>
       </li>
     </ul>
   </div>
 </section>
+
+<!-- fin seconde partie -->
+<!-- troisième partie -->
+
 <section class="third_section">
-  <h1>Sites utile</h1>
+  <h1>Sites utiles</h1>
   <div class="contain_third_section">
     <div class="contain_category">
       <div class="contain_third_title">
@@ -306,7 +311,7 @@ include_once "./../view/template/_navbar.php";
           <div class="contain_int_category">
             <div class="contain_img_category">
               <img
-                src="./image/algostake.jpg"
+                src="./image/algostak.jpg"
                 alt="logo algostake"
                 class="img_category"
               />
@@ -391,8 +396,9 @@ include_once "./../view/template/_navbar.php";
     </div>
   </div>
 </section>
-<script src="/script/main.js"></script>
-<script src="/script/home.js"></script>
+
 <?php
 include_once "./../view/template/footer.php";
 ?>
+<script src="/script/main.js"></script>
+<script src="/script/home.js"></script>

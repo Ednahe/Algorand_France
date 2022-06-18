@@ -30,8 +30,9 @@ include_once "./../view/template/_navbar.php";
         </article>
     </section>
 </main>
-<script src="/script/article.js"></script>
-<script src="/script/main.js"></script>
+
 <?php
 include_once "./../view/template/footer.php";
 ?>
+<script src="/script/article.js"></script>
+<script src="/script/main.js"></script>

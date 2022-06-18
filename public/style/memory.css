@@ -1,0 +1,13 @@
+.btn {
+    padding: 1em;
+    background-color: aqua;
+    cursor: pointer;
+    margin: 0.25em;
+    width: 100px;
+    height: 100px;
+}
+.img {
+    width: 100px;
+    height: 100px;
+    transform: translateY(42%);
+}

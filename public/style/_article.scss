@@ -207,6 +207,7 @@ body {
       max-width: 200px;
     }
   }
+
   /* burger menu */
 
   .hamburger {
@@ -265,4 +266,35 @@ body {
     .contain_nav_svg {
       display: none;
     }
+  }
+
+  /* connexion */
+
+  .section_connect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .form_section {
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5em;
+    #username,
+    #password {
+      border-radius: 16px;
+    }
+      .contain_btn_connect {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+      }
+    }
+
+  }
+  #article_content {
+    width: 100%;
+    height: 400px;
+    margin-top: 8px;
   }

@@ -19,8 +19,9 @@ include_once "../view/template/_navbar.php";
 <section class="contain_toast">
    <div class="end_try" id="end_try"></div>
 </section>
-<script src="/script/memory.js"></script>
-<script src="/script/main.js"></script>
+
 <?php
 include_once "../view/template/footer.php";
 ?>
+<script src="/script/memory.js"></script>
+<script src="/script/main.js"></script>

@@ -1,3 +1,5 @@
+/* image */
+
 .first_section {
   background: url(../image/1614950521-89e84c54-a6cf-4528-a9b8-5f2399fa7dbc.jpeg)
     center;
@@ -6,6 +8,10 @@
   height: 100vh;
   width: 100%;
 }
+
+/* fin image */
+/* seconde section */
+
 .second_section {
   .first_title {
     color: var(--color-is-white);
@@ -14,9 +20,10 @@
     flex-direction: row;
     justify-content: center;
     gap: 40px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-top: 32px;
+    margin-bottom: 24px;
     border-radius: 16px;
     align-items: center;
     box-shadow: 0 0 3px 0 var(--color-is-white),
@@ -141,6 +148,10 @@
     }
   }
 }
+
+/* fin seconde section */
+/* début troisième section */
+
 .third_section {
   .contain_third_section {
     .contain_category {
