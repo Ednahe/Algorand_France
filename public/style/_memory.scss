@@ -1,0 +1,75 @@
+.section_article_memory {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.section_memory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contain_game {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.contain_memory {
+  display: grid;
+  grid-template-columns: repeat(5, 8rem);
+  grid-template-rows: repeat(4, 8rem);
+  grid-gap: 2rem;
+  perspective: 800px;
+  padding: 2em;
+  box-shadow: 1px 1px 20px 2px var(--neon-color);
+  flex: 1 80%;
+  margin-top: 1.5em;
+  border-radius: 24px;
+}
+.try {
+  color: aliceblue;
+  text-shadow: var(--neon-effect-title);
+  font-size: 24px;
+}
+.end_try {
+  color: aliceblue;
+  flex: 1 20%;
+  transform: translateY(50%);
+  .notif {
+    padding: 1em;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow) var(--color-is-white);
+  }
+}
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 5px 15px;
+  border-radius: 50%;
+}
+.card:hover {
+  cursor: pointer;
+}
+.face,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  border: solid 3px rgb(255, 255, 255);
+}
+.back {
+  background: rgb(231,214,214);
+  background: rgb(181,16,16);
+  background: radial-gradient(circle, rgba(181,16,16,1) 10%, rgba(34,22,22,1) 35%, rgba(148,5,5,1) 88%);
+  backface-visibility: hidden;
+  border-radius: 50%;
+}
+.toggleCard {
+  transform: rotateY(180deg);
+}
+.face {
+  transform: rotateY(-180deg);
+}

@@ -7,7 +7,7 @@ require_once "../src/controller/ConnexionController.php";
 require_once "../src/controller/ArticleViewController.php";
 require_once "../src/controller/MemoryController.php";
 
-$page = NULL;
+$page = 'home';
 
 if (array_key_exists("page", $_GET)) $page = $_GET["page"];
 switch ($page) {
@@ -46,9 +46,11 @@ switch ($page) {
     case 'selectedArticle':
         $selectArticle = new ArticleController();
         $selectArticle->selectedArticle();
+        break;
     case 'memory':
         $memory = new MemoryController();
         $memory->renderView();
+        break;
     default:
         $error = new ErrorController();
         $error->renderView();

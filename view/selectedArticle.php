@@ -1,5 +1,5 @@
 <?php 
-include_once "../header.php";
+include_once "../view/template/head.php";
 include_once "./../view/template/_navbar.php";
 ?>
 
@@ -15,3 +15,7 @@ include_once "./../view/template/_navbar.php";
     <input type="hidden" name="article-id" value="<?php echo $options["article"]->getId(); ?>">
     <button class="white">Modifier</button>
 </form>
+
+<?php
+include_once "./../view/template/footer.php";
+?>

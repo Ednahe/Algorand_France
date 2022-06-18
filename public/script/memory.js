@@ -1,39 +1,39 @@
-const section = document.getElementById("section_memory");
-const compteurVie = document.getElementById("span_memory");
-let vie = 6;
+const container = document.getElementById("contain_memory");
+const nbTry = document.getElementById("span_memory");
+const endTry = document.getElementById("end_try");
+let tryIt = 9;
 
 // générer les vies
-compteurVie.textContent = vie;
+nbTry.textContent = tryIt;
 
 // placer aléatoirement les images dans le tableau
-const getData = () => [
-  {imgSrc: '../image_memory/image/akita.png', name:'akita'},
-  {imgSrc: '../image_memory/image/algo.jpg', name:'algo'},
-  {imgSrc: '../image_memory/image/arcc.png', name:'arcc'},
-  {imgSrc: '../image_memory/image/gems.png', name:'gems'},
-  {imgSrc: '../image_memory/image/headline.png', name:'headline'},
-  {imgSrc: '../image_memory/image/opul.png', name:'opul'},
-  {imgSrc: '../image_memory/image/smile.png', name:'smile'},
-  {imgSrc: '../image_memory/image/xet.png', name:'xet'},
-  {imgSrc: '../image_memory/image/yieldly.jpg', name:'yldy'},
-  {imgSrc: '../image_memory/image/Zone_logo.jpeg', name:'zone'},
-  {imgSrc: '../image_memory/image/akita.png', name:'akita'},
-  {imgSrc: '../image_memory/image/algo.jpg', name:'algo'},
-  {imgSrc: '../image_memory/image/arcc.png', name:'arcc'},
-  {imgSrc: '../image_memory/image/gems.png', name:'gems'},
-  {imgSrc: '../image_memory/image/headline.png', name:'headline'},
-  {imgSrc: '../image_memory/image/opul.png', name:'opul'},
-  {imgSrc: '../image_memory/image/smile.png', name:'smile'},
-  {imgSrc: '../image_memory/image/xet.png', name:'xet'},
-  {imgSrc: '../image_memory/image/yieldly.jpg', name:'yldy'},
-  {imgSrc: '../image_memory/image/Zone_logo.jpeg', name:'zone'}
+const img = () => [
+  { imgSrc: "./image_memory/image/akita.png", name: "akita" },
+  { imgSrc: "./image_memory/image/algo.jpg", name: "algo" },
+  { imgSrc: "./image_memory/image/choice.png", name: "choice" },
+  { imgSrc: "./image_memory/image/gems.png", name: "gems" },
+  { imgSrc: "./image_memory/image/headline.png", name: "headline" },
+  { imgSrc: "./image_memory/image/opul.png", name: "opul" },
+  { imgSrc: "./image_memory/image/smile.png", name: "smile" },
+  { imgSrc: "./image_memory/image/xet.png", name: "xet" },
+  { imgSrc: "./image_memory/image/yieldly.jpg", name: "yldy" },
+  { imgSrc: "./image_memory/image/Zone_logo.jpeg", name: "zone" },
+  { imgSrc: "./image_memory/image/akita.png", name: "akita" },
+  { imgSrc: "./image_memory/image/algo.jpg", name: "algo" },
+  { imgSrc: "./image_memory/image/choice.png", name: "choice" },
+  { imgSrc: "./image_memory/image/gems.png", name: "gems" },
+  { imgSrc: "./image_memory/image/headline.png", name: "headline" },
+  { imgSrc: "./image_memory/image/opul.png", name: "opul" },
+  { imgSrc: "./image_memory/image/smile.png", name: "smile" },
+  { imgSrc: "./image_memory/image/xet.png", name: "xet" },
+  { imgSrc: "./image_memory/image/yieldly.jpg", name: "yldy" },
+  { imgSrc: "./image_memory/image/Zone_logo.jpeg", name: "zone" },
 ];
-const tab = getData();
+const tab = img();
 
 // placement aléatoire dans le tableau
-
 const random = () => {
-  const cardsData = getData();
+  const cardsData = img();
   cardsData.sort(() => Math.random() - 0.5);
   return cardsData;
 };
@@ -43,70 +43,68 @@ const cardGenerator = () => {
   const cardsData = random();
   const cards = document.querySelectorAll(".card");
   cardsData.forEach((item) => {
-
     const card = document.createElement("div");
     const face = document.createElement("img");
     const back = document.createElement("div");
-    card.classList = 'card';
-    face.classList = 'face';
-    back.classList = 'back';
+    card.classList = "card";
+    face.classList = "face";
+    back.classList = "back";
     // lié les images aux cartes
     face.src = item.imgSrc;
-    card.setAttribute('name', item.name);
-    // afficher les cartes dans la section
-    section.appendChild(card);
+    card.setAttribute("name", item.name);
+    // afficher les cartes dans le container
+    container.appendChild(card);
     card.appendChild(face);
     card.appendChild(back);
 
-    card.addEventListener('click', (e) => {
+    card.addEventListener("click", (e) => {
       card.classList.toggle("toggleCard");
       checkCards(e);
-    })
+    });
   });
 };
 
 //vérification du click
 const checkCards = (e) => {
-  console.log(e);
   const clicked = e.target;
   clicked.classList.add("flip");
   const flipCard = document.querySelectorAll(".flip");
-  const plateau = document.querySelectorAll('toggleCard');
+  const plateau = document.querySelectorAll("toggleCard");
 
-  if(flipCard.length === 2) {
-    if(flipCard[0].getAttribute('name') === flipCard[1].getAttribute('name')) {
-      console.log("gagné");
-      flipCard.forEach(card => {
-        card.classList.remove('flip');
-        card.style.pointerEvents = 'none';
-      })
+  if (flipCard.length === 2) {
+    if (flipCard[0].getAttribute("name") === flipCard[1].getAttribute("name")) {
+      flipCard.forEach((card) => {
+        card.classList.remove("flip");
+        card.style.pointerEvents = "none";
+      });
     } else {
-      console.log("perdu");
-      flipCard.forEach(card => {
-        card.classList.remove('flip');
+      flipCard.forEach((card) => {
+        card.classList.remove("flip");
         setTimeout(() => {
-          card.classList.remove('toggleCard');
+          card.classList.remove("toggleCard");
         }, 1000);
       });
-      vie--;
-      compteurVie.textContent = vie;
-      if(vie === 0) {
-        restart("Perdu :'(");        
-      };
-    };
-  };
+      tryIt--;
+      nbTry.textContent = tryIt;
+      if (tryIt === 0) {
+        restart();
+        notificationLoose();
+      }
+    }
+  }
   // partie gagnée
-  if(plateau.length === 20) {
-    restart("bien joué :)");
+  if (plateau.length === 20) {
+    restart();
+    notificationWin();
   }
 };
 
-// réinitialisation
+// réinitialisation du jeu
 const restart = (text) => {
   let cardData = random();
   let faces = document.querySelectorAll(".face");
   let cards = document.querySelectorAll(".card");
-  section.style.pointerEvents = "none";
+  container.style.pointerEvents = "none";
   cardData.forEach((item, index) => {
     cards[index].classList.remove("toggleCard");
     //randomize
@@ -114,14 +112,35 @@ const restart = (text) => {
       cards[index].style.pointerEvents = "all";
       faces[index].src = item.imgSrc;
       cards[index].setAttribute("name", item.name);
-      section.style.pointerEvents = "all";
-    }, 1000);  
-  })
-  vie = 6;
-  compteurVie.textContent = vie;
+      container.style.pointerEvents = "all";
+    }, 1000);
+  });
+  tryIt = 9;
+  nbTry.textContent = tryIt;
   setTimeout(() => {
-    window.alert(text)
   }, 100);
 };
 
-addEventListener('load', cardGenerator);
+
+// notification qui se déclanche une fois la partie terminée
+const notificationWin = () => {
+  const notif = document.createElement("p");
+  notif.classList.add("notif");
+  notif.innerText = "bien joué vous avez gagné";
+  endTry.appendChild(notif);
+  setTimeout(() => {
+    notif.remove();
+  }, 2000);
+};
+
+const notificationLoose = () => {
+  const notif = document.createElement("p");
+  notif.classList.add("notif");
+  notif.innerText = "Dommage :(";
+  endTry.appendChild(notif);
+  setTimeout(() => {
+    notif.remove();
+  }, 2000);
+};
+
+addEventListener("load", cardGenerator);

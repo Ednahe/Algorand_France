@@ -1,41 +1,46 @@
 <?php 
-include_once "../header.php";
+include_once "./../view/template/head.php";
 include_once "./../view/template/_navbar.php";
 ?>
 
 <h1>Ici les articles</h1>
 
-<div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th class="view">Id</th>
-                    <th class="view">Titre</th>
-                    <th class="view">Date de publication</th>
-                    <th class="view">Content</th>
-                </tr>
-            </thead>
-            <tbody class="contain_article">
-                <?php if (isset($options["articles"])) {
-                    foreach ($options["articles"] as $key => $article) { ?>
-                        <tr>
-                            <th class="view"><?php echo $article->getId() ?></th>
-                            <td class="view"><?php echo $article->getTitle() ?></td>
-                            <td class="view"><?php echo $article->getPublishedDate() ?></td>
-                            <td class="view"><?php echo $article->getContent() ?></td>
-                            <td> 
-            <a class="a_admin" href="?page=deleteArticle&id=<?= $article->getId(); ?>">Supprimer</a>
+<main>
+  <section>
+    <article class="article">
+    <div class="contain_scroll_article">
+                <h2>scroll</h2>
+                <div id="contain_arrow">
+                    <img src="/image/arrow-down-solid.svg" alt="fleche pointant vers le bas">
+                </div>
+            </div>
+      <?php if (isset($options["articles"])) {
+                    foreach ($options["articles"] as $key =>
+      $article) { ?>
+      <div class="contain_article">
+        <div class="contain_content">
+          <h2 class="view view_article"><?php echo $article->getTitle() ?></h2>
+          <p class="view view_article"><?php echo $article->getContent() ?></p>
+          <p class="view view_article">
+            <?php echo $article->getPublishedDate() ?>
+          </p>
+          <a class="a_admin" href="?page=deleteArticle&id=<?= $article->getId(); ?>">Supprimer</a>
             <a class="a_admin" href="?page=selectedArticle&id=<?= $article->getId(); ?>">Modifier</a></td>
-                        </tr>
-                <?php }
-                } ?>
-            </tbody>
-        </table>
-    </div>
-    <?php  if (isset($_SESSION["user_is_connect"]) && $_SESSION["user_is_connect"]) { ?>
-        <div>
-            <a class="a_admin" href="/?page=add_article">Ajouter un article</a> 
         </div>
-    <?php  } ?>
-</div>
+      </div>
+      <?php }
+                } ?>
+
+      <?php  if (isset($_SESSION["user_is_connect"]) && $_SESSION["user_is_connect"]) { ?>
+      <div>
+        <a class="a_admin" href="/?page=add_article">Ajouter un article</a>
+      </div>
+      <?php  } ?>
+    </article>
+  </section>
+</main>
+<script src="/script/article.js"></script>
+<script src="/script/main.js"></script>
+<?php
+include_once "./../view/template/footer.php";
+?>

@@ -1,31 +1,37 @@
 <?php
-include_once "../header.php";
+include_once "./../view/template/head.php";
 include_once "./../view/template/_navbar.php";
 ?>
 
-<h1>Ici les articles pour tout le monde</h1>
+<h1>Articles</h1>
 
-<div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th class="view">Titre</th>
-                    <th class="view">Date de publication</th>
-                    <th class="view">Content</th>
-                </tr>
-            </thead>
-            <tbody class="contain_article">
-                <?php if (isset($options["articles"])) {
+<main>
+    <section>
+        <article class="article">
+            <div class="contain_scroll_article">
+                <h2>scroll</h2>
+                <div id="contain_arrow">
+                    <img src="/image/arrow-down-solid.svg" alt="fleche pointant vers le bas">
+                </div>
+            </div>
+            <?php if (isset($options["articles"])) {
                     foreach ($options["articles"] as $key => $article) { ?>
-                        <tr>
-                            <td class="view"><?php echo $article->getTitle() ?></td>
-                            <td class="view"><?php echo $article->getPublishedDate() ?></td>
-                            <td class="view"><?php echo $article->getContent() ?></td>
-                        </tr>
-                <?php }
+                    <div class="contain_article"> 
+                        <div class="contain_content">
+                            <h2 class="view view_article"><?php echo $article->getTitle() ?></h2>
+                            <p class="view view_article"><?php echo $article->getContent() ?></p>
+                            <p class="view view_article"><?php echo $article->getPublishedDate() ?></p>
+                        </div>
+
+                    </div> 
+                    <?php }
                 } ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+            
+        </article>
+    </section>
+</main>
+<script src="/script/article.js"></script>
+<script src="/script/main.js"></script>
+<?php
+include_once "./../view/template/footer.php";
+?>
