@@ -1,7 +1,7 @@
 const container = document.getElementById("contain_memory");
 const nbTry = document.getElementById("span_memory");
 const endTry = document.getElementById("end_try");
-let tryIt = 9;
+let tryIt = 12;
 
 // générer les vies
 nbTry.textContent = tryIt;
@@ -115,7 +115,7 @@ const restart = (text) => {
       container.style.pointerEvents = "all";
     }, 1000);
   });
-  tryIt = 9;
+  tryIt = 12;
   nbTry.textContent = tryIt;
   setTimeout(() => {
   }, 100);
